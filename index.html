@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maestranzas Unidos S.A.</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e9ecef;
+      color: #343a40;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #007bff;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      background: #007bff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .tab {
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .tab:hover {
+      background: #0056b3;
+    }
+    .section {
+      display: none;
+      margin-top: 20px;
+    }
+    .active {
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #dee2e6;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    .button {
+      padding: 10px 20px;
+      color: white;
+      background-color: #28a745;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background-color: #218838;
+    }
+    form input {
+      padding: 10px;
+      margin: 5px 0;
+      width: calc(100% - 22px);
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+    }
+    form button {
+      width: 100%;
+    }
+  </style>
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+</head>
+<body>
+<div class="container">
+  <h1>Maestranzas Unidos S.A. - Sistema de Gestión</h1>
+
+  <div class="tabs">
+    <div class="tab" onclick="showSection('pedidos')">Gestión de Pedidos</div>
+    <div class="tab" onclick="showSection('produccion')">Gestión de Producción</div>
+    <div class="tab" onclick="showSection('calidad')">Control de Calidad</div>
+    <div class="tab" onclick="showSection('reportes')">Reportes y Análisis</div>
+  </div>
+
+  <div id="pedidos" class="section active">
+    <h2>Gestión de Pedidos</h2>
+    <p>Registrar nuevos pedidos, modificar y cancelar pedidos en curso.</p>
+    <form>
+      <input type="text" placeholder="Nombre del Cliente">
+      <input type="text" placeholder="Especificaciones del Producto">
+      <input type="date" placeholder="Fecha de Entrega">
+      <button class="button">Registrar Pedido</button>
+    </form>
+  </div>
+
+  <div id="produccion" class="section">
+    <h2>Gestión de Producción</h2>
+    <p>Asignación de tareas y monitoreo del avance.</p>
+    <table>
+      <tr><th>Pedido</th><th>Progreso</th><th>Acciones</th></tr>
+      <tr>
+        <td>#1234</td>
+        <td>50%</td>
+        <td><button class="button">Actualizar</button></td>
+      </tr>
+      <tr>
+        <td>#1235</td>
+        <td>20%</td>
+        <td><button class="button">Actualizar</button></td>
+      </tr>
+      <tr>
+        <td>#1236</td>
+        <td>75%</td>
+        <td><button class="button">Actualizar</button></td>
+      </tr>
+      <tr>
+        <td>#1237</td>
+        <td>100%</td>
+        <td><button class="button">Actualizar</button></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="calidad" class="section">
+    <h2>Control de Calidad</h2>
+    <p>Registro de inspecciones de calidad.</p>
+    <table>
+      <tr><th>Pedido</th><th>Resultado</th><th>Acciones</th></tr>
+      <tr>
+        <td>#1234</td>
+        <td>Aprobado</td>
+        <td><button class="button">Ver Reporte</button></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="reportes" class="section">
+    <h2>Reportes y Análisis</h2>
+    <p>Generación de reportes automáticos y exportación de datos.</p>
+    <button class="button">Exportar a PDF</button>
+    <button class="button">Exportar a Excel</button>
+  </div>
+</div>
+</body>
+</html>
